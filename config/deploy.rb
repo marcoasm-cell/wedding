@@ -7,7 +7,7 @@ set :application, "wedding_photos"
 # TODO: point this at your repository. For a private repo over HTTPS, either
 # embed a token (https://<user>:<token>@host/...) or configure a git credential
 # helper on the server for the deploy user.
-set :repo_url, ENV.fetch("REPO_URL", "https://github.com/your-org/wedding_photos.git")
+set :repo_url, "https://m_marques:glpat-utb8QDK88tOyq1oSo2kwA2M6MQpvOjEKdTpudHB6OA8.01.170qcrvzn@gitlab.com/m_marques/wedding.git"
 set :branch, ENV.fetch("BRANCH", "main")
 
 # --- Paths --------------------------------------------------------------------
