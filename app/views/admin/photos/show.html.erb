@@ -1,0 +1,35 @@
+<% content_for :title, "Fotografia · Administração" %>
+
+<div class="min-h-screen">
+  <header class="border-b border-sage-200 bg-white/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <%= link_to "← Voltar à galeria", admin_root_path, class: "text-sm uppercase tracking-[0.2em] text-sage-700 hover:text-sage-800" %>
+      <div class="flex items-center gap-3 text-sm">
+        <%= link_to "Descarregar original", rails_blob_path(@photo.image, disposition: "attachment"),
+              class: "rounded-full border border-sage-500 px-4 py-2 uppercase tracking-[0.2em] text-sage-700 transition hover:bg-sage-600 hover:text-white" %>
+        <%= button_to "Eliminar", admin_photo_path(@photo), method: :delete,
+              form: { data: { turbo_confirm: "Eliminar esta fotografia definitivamente?" } },
+              class: "rounded-full border border-red-300 px-4 py-2 uppercase tracking-[0.2em] text-red-700 transition hover:bg-red-700 hover:text-white" %>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-4xl px-6 py-8 text-center">
+    <%= image_tag @photo.image.variant(:large), class: "mx-auto max-h-[75vh] rounded-2xl shadow-lg" %>
+
+    <dl class="mx-auto mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-ink/70">
+      <div>
+        <dt class="inline uppercase tracking-[0.2em] text-sage-700">Enviada por:</dt>
+        <dd class="inline italic"><%= @photo.guest_name.presence || "Convidado anónimo" %></dd>
+      </div>
+      <div>
+        <dt class="inline uppercase tracking-[0.2em] text-sage-700">Em:</dt>
+        <dd class="inline"><%= l @photo.created_at, format: :long %></dd>
+      </div>
+      <div>
+        <dt class="inline uppercase tracking-[0.2em] text-sage-700">Ficheiro:</dt>
+        <dd class="inline"><%= @photo.image.filename %> (<%= number_to_human_size(@photo.image.byte_size) %>)</dd>
+      </div>
+    </dl>
+  </main>
+</div>

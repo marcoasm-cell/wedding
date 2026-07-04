@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta baseada no convite: creme, verdes de eucalipto e tinta escura */
+  --color-cream: #f7f5ed;
+  --color-ink: #2b2b26;
+  --color-sage-100: #eef0e5;
+  --color-sage-200: #dde3cf;
+  --color-sage-300: #c3cdaa;
+  --color-sage-400: #a3b18a;
+  --color-sage-500: #8a9b72;
+  --color-sage-600: #6f815a;
+  --color-sage-700: #57654a;
+  --color-sage-800: #434f39;
+
+  --font-script: "Pinyon Script", cursive;
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+}

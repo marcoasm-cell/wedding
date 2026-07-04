@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title><%= content_for(:title) || "Andreia & Marco · 05.09.2026" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Andreia & Marco">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="<%= image_path 'favicon/favicon.ico' %>" type="image/x-icon">
+    <link rel="icon" href="<%= image_path 'favicon/favicon-32x32.png' %>" type="image/png" sizes="32x32">
+    <link rel="icon" href="<%= image_path 'favicon/favicon-16x16.png' %>" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="<%= image_path 'favicon/apple-touch-icon.png' %>" sizes="180x180">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="min-h-screen bg-cream font-display text-ink antialiased">
+    <% if flash[:notice].present? %>
+      <div class="fixed inset-x-0 top-4 z-50 mx-auto w-fit max-w-[90%] rounded-full bg-sage-600 px-6 py-2 text-center text-sm text-white shadow-lg">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="fixed inset-x-0 top-4 z-50 mx-auto w-fit max-w-[90%] rounded-full bg-red-800/90 px-6 py-2 text-center text-sm text-white shadow-lg">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

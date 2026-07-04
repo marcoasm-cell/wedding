@@ -1,0 +1,28 @@
+<% content_for :title, "QR code · Administração" %>
+
+<div class="min-h-screen">
+  <header class="border-b border-sage-200 bg-white/70 backdrop-blur print:hidden">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <%= link_to "← Voltar à galeria", admin_root_path, class: "text-sm uppercase tracking-[0.2em] text-sage-700 hover:text-sage-800" %>
+      <button onclick="window.print()"
+              class="rounded-full border border-sage-500 px-4 py-2 text-sm uppercase tracking-[0.2em] text-sage-700 transition hover:bg-sage-600 hover:text-white">
+        Imprimir
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto flex max-w-md flex-col items-center px-6 py-12 text-center">
+    <p class="text-[0.65rem] uppercase tracking-[0.35em] text-sage-700">Partilhem as vossas fotografias</p>
+    <h1 class="mt-4 font-script text-5xl">Andreia <span class="text-3xl">e</span> Marco</h1>
+    <p class="mt-2 text-lg tracking-[0.25em] text-ink/70">05 · 09 · 2026</p>
+
+    <div class="mt-8 w-64 rounded-2xl bg-white p-6 shadow-lg [&_svg]:h-auto [&_svg]:w-full">
+      <%= raw @qr_svg %>
+    </div>
+
+    <p class="mt-6 text-sm text-ink/60"><%= @url %></p>
+    <p class="mt-8 max-w-xs italic leading-relaxed text-ink/70">
+      Imprima este QR code e coloque-o nas mesas — os convidados só precisam de apontar a câmara do telemóvel.
+    </p>
+  </main>
+</div>

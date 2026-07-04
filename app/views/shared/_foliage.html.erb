@@ -1,0 +1,37 @@
+<%# Ramo de eucalipto em aguarela, inspirado no convite. Posicionar com `css_class`. %>
+<svg class="<%= local_assigns.fetch(:css_class, "") %>" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="folha" d="M0 0 C 14 -18, 42 -18, 56 0 C 42 18, 14 18, 0 0 Z"/>
+  </defs>
+
+  <!-- caules -->
+  <path d="M10 310 C 80 240, 120 160, 150 40" stroke="#7f8f66" stroke-width="2.5" fill="none" opacity="0.8"/>
+  <path d="M20 300 C 90 270, 160 230, 245 218" stroke="#96a67c" stroke-width="2" fill="none" opacity="0.65"/>
+  <path d="M14 306 C 50 290, 70 270, 82 246" stroke="#a9b791" stroke-width="1.6" fill="none" opacity="0.55"/>
+
+  <!-- folhas do caule principal -->
+  <use href="#folha" transform="translate(32 288) rotate(-48)" fill="#a3b18a" opacity="0.85"/>
+  <use href="#folha" transform="translate(50 268) rotate(130) scale(0.9)" fill="#8a9b72" opacity="0.7"/>
+  <use href="#folha" transform="translate(70 240) rotate(-58)" fill="#93a37b" opacity="0.85"/>
+  <use href="#folha" transform="translate(88 214) rotate(122) scale(0.85)" fill="#b4c19c" opacity="0.7"/>
+  <use href="#folha" transform="translate(104 184) rotate(-64) scale(0.95)" fill="#8a9b72" opacity="0.8"/>
+  <use href="#folha" transform="translate(117 154) rotate(116) scale(0.8)" fill="#a3b18a" opacity="0.65"/>
+  <use href="#folha" transform="translate(128 124) rotate(-70) scale(0.9)" fill="#97a87e" opacity="0.85"/>
+  <use href="#folha" transform="translate(137 94) rotate(110) scale(0.75)" fill="#b4c19c" opacity="0.6"/>
+  <use href="#folha" transform="translate(144 66) rotate(-76) scale(0.8)" fill="#8a9b72" opacity="0.8"/>
+  <use href="#folha" transform="translate(149 42) rotate(-80) scale(0.6)" fill="#a3b18a" opacity="0.9"/>
+
+  <!-- folhas do caule secundário -->
+  <use href="#folha" transform="translate(62 282) rotate(-16) scale(0.9)" fill="#9db083" opacity="0.7"/>
+  <use href="#folha" transform="translate(98 262) rotate(160) scale(0.85)" fill="#b4c19c" opacity="0.6"/>
+  <use href="#folha" transform="translate(134 246) rotate(-12) scale(0.9)" fill="#8a9b72" opacity="0.75"/>
+  <use href="#folha" transform="translate(170 234) rotate(164) scale(0.8)" fill="#a3b18a" opacity="0.6"/>
+  <use href="#folha" transform="translate(205 226) rotate(-8) scale(0.85)" fill="#93a37b" opacity="0.75"/>
+  <use href="#folha" transform="translate(238 220) rotate(-5) scale(0.65)" fill="#b4c19c" opacity="0.7"/>
+
+  <!-- folhas do rebento curto -->
+  <use href="#folha" transform="translate(40 296) rotate(-30) scale(0.65)" fill="#c3cdaa" opacity="0.7"/>
+  <use href="#folha" transform="translate(58 280) rotate(-38) scale(0.6)" fill="#a9b791" opacity="0.65"/>
+  <use href="#folha" transform="translate(72 262) rotate(-46) scale(0.6)" fill="#c3cdaa" opacity="0.6"/>
+  <use href="#folha" transform="translate(80 248) rotate(-52) scale(0.5)" fill="#9db083" opacity="0.7"/>
+</svg>

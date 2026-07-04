@@ -1,0 +1,57 @@
+<% content_for :title, "Fotografias · Administração" %>
+
+<div class="min-h-screen">
+  <header class="border-b border-sage-200 bg-white/70 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+      <div>
+        <h1 class="font-script text-3xl leading-none">Andreia <span class="text-xl">e</span> Marco</h1>
+        <p class="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-sage-700">
+          <%= @total == 1 ? "1 fotografia" : "#{@total} fotografias" %> dos convidados
+        </p>
+      </div>
+      <nav class="flex items-center gap-3 text-sm">
+        <%= link_to "QR code", admin_qr_path,
+              class: "rounded-full border border-sage-500 px-4 py-2 uppercase tracking-[0.2em] text-sage-700 transition hover:bg-sage-600 hover:text-white" %>
+        <%= button_to "Sair", admin_logout_path, method: :delete,
+              class: "rounded-full px-4 py-2 uppercase tracking-[0.2em] text-ink/60 transition hover:text-ink" %>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-6 py-8">
+    <% if @photos.empty? %>
+      <div class="py-24 text-center">
+        <p class="font-script text-4xl text-sage-700">Ainda sem fotografias…</p>
+        <p class="mt-4 italic text-ink/70">Assim que os convidados começarem a enviar, aparecem aqui.</p>
+      </div>
+    <% else %>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <% @photos.each do |photo| %>
+          <div class="group relative overflow-hidden rounded-xl bg-sage-100 shadow-sm">
+            <%= link_to admin_photo_path(photo) do %>
+              <%= image_tag photo.image.variant(:thumb), loading: "lazy",
+                    class: "aspect-square w-full object-cover transition duration-300 group-hover:scale-105" %>
+            <% end %>
+            <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-2 pt-8 text-white">
+              <p class="truncate text-sm"><%= photo.guest_name.presence || "Convidado anónimo" %></p>
+              <p class="text-xs text-white/70"><%= l photo.created_at, format: :short %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @pages > 1 %>
+        <nav class="mt-10 flex items-center justify-center gap-2 text-sm">
+          <% (1..@pages).each do |page| %>
+            <% if page == @page %>
+              <span class="rounded-full bg-sage-600 px-4 py-2 text-white"><%= page %></span>
+            <% else %>
+              <%= link_to page, admin_photos_path(page: page),
+                    class: "rounded-full border border-sage-300 px-4 py-2 text-sage-700 transition hover:bg-sage-100" %>
+            <% end %>
+          <% end %>
+        </nav>
+      <% end %>
+    <% end %>
+  </main>
+</div>
