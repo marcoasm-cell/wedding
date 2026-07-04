@@ -60,6 +60,13 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  # Deployment automation over SSH [https://capistranorb.com]
+  gem "capistrano", "~> 3.19", require: false
+  gem "capistrano-rails", "~> 1.6", require: false   # migrations, assets, bundler
+  gem "capistrano-rbenv", "~> 2.2", require: false   # rbenv Ruby version manager on the server
+  gem "capistrano3-puma", "~> 8.1", require: false   # Puma app server (systemd integration)
+  # Delayed Job worker restart is handled by lib/capistrano/tasks/delayed_job.rake
 end
 
 group :test do

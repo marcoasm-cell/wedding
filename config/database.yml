@@ -52,4 +52,6 @@ production:
   <<: *default
   database: wedding_photos_production
   username: wedding_photos
-  password: <%= ENV["WEDDING_PHOTOS_DATABASE_PASSWORD"] %>
+  # Prefer the env var; fall back to encrypted credentials (database.password),
+  # which are decrypted with config/master.key (a Capistrano linked file).
+  password: <%= ENV["WEDDING_PHOTOS_DATABASE_PASSWORD"] || Rails.application.credentials.dig(:database, :password) %>
