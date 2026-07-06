@@ -29,7 +29,7 @@
         <% @photos.each do |photo| %>
           <div class="group relative overflow-hidden rounded-xl bg-sage-100 shadow-sm">
             <%= link_to admin_photo_path(photo) do %>
-              <%= image_tag photo.image.variant(:thumb), loading: "lazy",
+              <%= image_tag photo.image, loading: "lazy",
                     class: "aspect-square w-full object-cover transition duration-300 group-hover:scale-105" %>
             <% end %>
             <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-3 pb-2 pt-8 text-white">

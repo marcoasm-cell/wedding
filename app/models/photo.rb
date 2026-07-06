@@ -1,8 +1,7 @@
 class Photo < ApplicationRecord
-  has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_fill: [ 400, 400 ], preprocessed: true
-    attachable.variant :large, resize_to_limit: [ 1600, 1600 ]
-  end
+  # Guardamos e servimos a fotografia original, sem gerar variantes (evita o
+  # processamento de imagem no servidor, que estava a provocar erros 500).
+  has_one_attached :image
 
   validates :image, presence: { message: "tem de ser selecionada" }
   validate :acceptable_image
