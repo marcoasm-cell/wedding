@@ -8,7 +8,7 @@ export default class extends Controller {
   static MAX_PREVIEWS = 8
 
   update() {
-    const files = Array.from(this.inputTarget.files || [])
+    const files = this.inputTargets.flatMap((input) => Array.from(input.files || []))
 
     this.previewsTarget.innerHTML = ""
 
