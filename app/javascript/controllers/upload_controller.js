@@ -7,13 +7,6 @@ export default class extends Controller {
 
   static MAX_PREVIEWS = 8
 
-  connect() {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    if (isMobile) {
-      this.inputTarget.setAttribute("accept", "image/jpeg,image/png,image/gif,image/webp")
-    }
-  }
-
   update() {
     const files = Array.from(this.inputTarget.files || [])
 
