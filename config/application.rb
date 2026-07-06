@@ -26,5 +26,11 @@ module WeddingPhotos
 
     # Delayed Job processa os trabalhos em segundo plano (variantes de imagens, purges, etc.)
     config.active_job.queue_adapter = :delayed_job
+
+    # Usa o ImageMagick (mini_magick) para gerar variantes. O servidor tem o
+    # ImageMagick instalado com suporte a HEIC/HEIF (fotos de iPhone), ao passo
+    # que o libvips (processador por defeito) pode não estar disponível ou não
+    # ter suporte a HEIF — o que provoca erros 500 ao gerar miniaturas.
+    config.active_storage.variant_processor = :mini_magick
   end
 end
